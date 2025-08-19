@@ -241,3 +241,4 @@ local.properties
 # *.iml
 # *.ipr
 
+**/.flattened-pom.xml

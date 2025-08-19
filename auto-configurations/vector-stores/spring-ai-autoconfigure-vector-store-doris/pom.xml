@@ -10,7 +10,7 @@
     <parent>
         <groupId>io.github.ngukf.ai</groupId>
         <artifactId>ngukf-ai-parent</artifactId>
-        <version>1.0.1</version>
+        <version>${revision}</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
     <dependencies>
@@ -18,7 +18,6 @@
         <dependency>
             <groupId>io.github.ngukf.ai</groupId>
             <artifactId>spring-ai-doris-store</artifactId>
-            <version>${project.parent.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>

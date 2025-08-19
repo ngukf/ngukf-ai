@@ -10,7 +10,7 @@
     <parent>
         <groupId>io.github.ngukf.ai</groupId>
         <artifactId>ngukf-ai-parent</artifactId>
-        <version>1.0.1</version>
+        <version>${revision}</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
     <dependencies>
