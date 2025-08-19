@@ -1,0 +1,17 @@
+# editorconfig.org
+root = true
+
+[*]                             # 应用所有文件
+charset = utf-8                 # 使用 UTF-8 字符编码
+indent_style = space            # 使用空格进行缩进
+indent_size = 4                 # 每个缩进级别使用 4 个空格
+end_of_line = lf                # 使用 Unix 风格的换行符 (LF)
+insert_final_newline = true     # 在文件末尾插入一个新行
+trim_trailing_whitespace = true # 移除行尾的空白字符
+max_line_length = 120           # 每行最大字符数为 100
+
+# [*.md]                          # 特定于 Markdown 文件的规则
+# trim_trailing_whitespace = true # 不移除 Markdown 文件中的行尾空白字符
+#
+# [Makefile]                      # 特定于 Makefile 的规则
+# indent_style = space            # 使用制表符进行缩进
