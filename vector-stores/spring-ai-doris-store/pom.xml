@@ -6,7 +6,7 @@
 
     <artifactId>spring-ai-doris-store</artifactId>
     <packaging>jar</packaging>
-
+    <name>Spring AI Vector Store - ApahceDoris</name>
     <parent>
         <groupId>io.github.ngukf.ai</groupId>
         <artifactId>ngukf-ai-parent</artifactId>
