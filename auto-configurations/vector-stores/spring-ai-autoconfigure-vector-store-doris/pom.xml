@@ -6,7 +6,7 @@
 
     <artifactId>spring-ai-autoconfigure-vector-store-doris</artifactId>
     <packaging>jar</packaging>
-
+    <name>Spring AI Auto Configuration for Apache Doris vector store</name>
     <parent>
         <groupId>io.github.ngukf.ai</groupId>
         <artifactId>ngukf-ai-parent</artifactId>

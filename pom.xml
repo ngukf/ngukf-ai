@@ -7,11 +7,40 @@
     <artifactId>ngukf-ai-parent</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
+
+    <url>https://github.com/ngukf/ngukf-ai</url>
+
+    <name>Ngukf Spring AI Parent</name>
+    <description>Building AI applications with Spring Boot</description>
+
     <modules>
         <module>vector-stores/spring-ai-doris-store</module>
         <module>spring-ai-spring-boot-starters/spring-ai-starter-vector-store-doris</module>
         <module>auto-configurations/vector-stores/spring-ai-autoconfigure-vector-store-doris</module>
     </modules>
+
+    <scm>
+        <url>https://github.com/ngukf/ngukf-ai</url>
+        <connection>git://github.com/ngukf/ngukf-ai.git</connection>
+        <developerConnection>git@github.com:ngukf/ngukf-ai.git</developerConnection>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>Apache 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Paul</name>
+            <email>wppw10@163.com</email>
+            <organization>ngukf</organization>
+            <organizationUrl>https://ngukf.github.io</organizationUrl>
+        </developer>
+    </developers>
 
     <repositories>
         <repository>
@@ -27,8 +56,20 @@
         </repository>
     </repositories>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>spring-snapshots</id>
+            <url>https://repo.spring.io/libs-snapshot-local</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </snapshotRepository>
+    </distributionManagement>
+
     <properties>
-        <revision>0.0.1-SNAPSHOT</revision>
+        <revision>1.0.1</revision>
+        <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
+        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
         <flatten-maven-plugin.version>1.7.1</flatten-maven-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -97,6 +138,59 @@
                 <extensions>true</extensions>
                 <configuration>
                     <publishingServerId>central-portal-snapshots</publishingServerId>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <overview>
+                        ${project.basedir}/spring-ai-docs/src/main/javadoc/overview.html
+                    </overview>
+                    <detectJavaApiLink>false</detectJavaApiLink>
+                    <detectOfflineLinks>false</detectOfflineLinks>
+                    <failOnError>false</failOnError>
+                    <doclint>none</doclint>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-javadocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Passphrase consumed from MAVEN_GPG_PASSPHRASE environment variable. -->
                 </configuration>
             </plugin>
             <plugin>
