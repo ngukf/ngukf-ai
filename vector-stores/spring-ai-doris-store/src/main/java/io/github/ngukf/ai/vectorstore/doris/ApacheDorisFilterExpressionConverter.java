@@ -71,7 +71,7 @@ public class ApacheDorisFilterExpressionConverter extends AbstractFilterExpressi
     @Override
     protected void doKey(Key key, StringBuilder context) {
         // Apache Doris uses json_extract instead of JSON_VALUE
-        context.append("json_extract(")
+        context.append("json_extract_string(")
             .append(this.metadataFieldName)
             .append(", '$.")
             .append(key.key())
